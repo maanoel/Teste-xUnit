@@ -1,11 +1,10 @@
 ﻿using Alura.Estacionamento.Alura.Estacionamento.Modelos;
 using Alura.Estacionamento.Modelos;
 using System;
-using System.Collections.Generic;
 
 namespace Alura.Estacionamento
 {
-    class Program
+  class Program
     {
 
         // Cria uma lista de objetos do tipo veículos, para armazenar
