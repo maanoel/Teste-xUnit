@@ -6,6 +6,8 @@ namespace Alura.Estacionamento.Testes
 {
   public class PatioTestes
   {
+    //é Possível rodar o testes com Xunit usando o gerenciador de pacotes do 
+    //NUGET
     [Fact]
     public void ValidaFaturamento() 
     {
@@ -34,7 +36,6 @@ namespace Alura.Estacionamento.Testes
     [InlineData("Vitor brito", "ASD-7777", "PRETO", "GOL")]
     [InlineData("Nadine brito", "ASB-7777", "PRETO", "GOL")]
     [InlineData("Dante brito", "ABB-7777", "PRETO", "GOL")]
-
     public void ValidarFaturamentoComVariosVeiculos(string proprietario, string placa, string cor, string modelo)
     {
       //Arrange
@@ -55,6 +56,5 @@ namespace Alura.Estacionamento.Testes
       //Assert
       Assert.Equal(2, faturamento);
     }
-
   }
 }
