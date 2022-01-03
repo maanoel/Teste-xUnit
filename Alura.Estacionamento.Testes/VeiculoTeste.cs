@@ -12,6 +12,7 @@ namespace Alura.Estacionamento.Testes
     //Assert 
 
     [Fact]
+    [Trait("Funcionalidade", "acelerar")]
     public void TestaVeiculoAcelerar()
     {
       //Arrange
@@ -24,7 +25,8 @@ namespace Alura.Estacionamento.Testes
 
     //Na totvs, usamos o MSTest para realizar o testes unitários..
     //MSTEXT usa TestMethod e TestClass
-    [Fact]
+    [Fact(DisplayName = "Teste numero 1")]
+    [Trait("Funcionalidade", "frear")]
     public void TestaVeicularFrear()
     {
       //Arrange
@@ -35,12 +37,33 @@ namespace Alura.Estacionamento.Testes
       Assert.Equal(-150, veiculo.VelocidadeAtual);
     }
 
-    [Fact]
+    [Fact(DisplayName = "Teste numero 2")]
     public void TestaTipoVeiculo()
     {
       var veiculo = new Veiculo();
 
       Assert.Equal(TipoVeiculo.Automovel, veiculo.Tipo);
+    }
+
+    [Fact(Skip = "Adicionando um skip no fact, fará com que o teste não seja executado")]
+    public void ValidarNomeProprietario()
+    {
+
+    }
+
+    [Theory]
+    [ClassData(typeof(Veiculo))]
+    public void TestaVeiculoClass(Veiculo modelo)
+    {
+      //Arrange
+      var veiculo = new Veiculo();
+
+      //Act
+      veiculo.Acelerar(10);
+      modelo.Acelerar(10);
+
+      //Assert
+      Assert.Equal(modelo.VelocidadeAtual, veiculo.VelocidadeAtual);
     }
   }
 }
