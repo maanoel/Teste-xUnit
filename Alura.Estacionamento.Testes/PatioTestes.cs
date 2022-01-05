@@ -120,7 +120,22 @@ namespace Alura.Estacionamento.Testes
       //act
       bool fechouPortao = estacionamento.FecharPortao();
 
+      //assert
       Assert.Equal(fechouPortao, estacionamento.PortaoAberto);
+    }
+
+    [Fact]
+    public void AbrirPortaoPatio()
+    {
+      //arrange
+      var estacionamento = new Patio();
+      estacionamento.OperadorPatio = new Operador();
+
+      //act
+      bool abriuPortao = estacionamento.AbrirPortao();
+
+      //assert
+      Assert.Equal(abriuPortao, estacionamento.PortaoAberto);
     }
   }
 }

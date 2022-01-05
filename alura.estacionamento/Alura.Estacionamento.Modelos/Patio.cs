@@ -121,6 +121,12 @@ namespace Alura.Estacionamento.Modelos
       return PortaoAberto;
     }
 
+    public bool AbrirPortao()
+    {
+      PortaoAberto = true;
+      return PortaoAberto;
+    }
+
     public Veiculo PesquisaVeiculoPorPlaca(string placa)
     {
       // Como estamos trabalhando com array de objetos,
@@ -130,6 +136,8 @@ namespace Alura.Estacionamento.Modelos
                         select veiculo).SingleOrDefault();
       return encontrado;
     }
+
+
 
     private string GerarTicket(Veiculo veiculo)
     {
