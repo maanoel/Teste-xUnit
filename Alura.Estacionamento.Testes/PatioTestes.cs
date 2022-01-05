@@ -9,7 +9,7 @@ namespace Alura.Estacionamento.Testes
     //é Possível rodar o testes com Xunit usando o gerenciador de pacotes do 
     //NUGET
     [Fact]
-    public void ValidaFaturamento() 
+    public void ValidaFaturamento()
     {
       //arrange
       var estacionamento = new Patio();
@@ -81,7 +81,7 @@ namespace Alura.Estacionamento.Testes
     }
 
     [Fact]
-    public void AlterarDadosVeiculo() 
+    public void AlterarDadosVeiculo()
     {
       //Arrange
       var estacionamento = new Patio();
@@ -108,6 +108,19 @@ namespace Alura.Estacionamento.Testes
 
       //assert
       Assert.Equal(alterado.Cor, veiculoAlterado.Cor);
+    }
+
+    [Fact]
+    public void FecharPortaoPatio()
+    {
+      //arrange
+      var estacionamento = new Patio();
+      estacionamento.OperadorPatio = new Operador();
+
+      //act
+      bool fechouPortao = estacionamento.FecharPortao();
+
+      Assert.Equal(fechouPortao, estacionamento.PortaoAberto);
     }
   }
 }

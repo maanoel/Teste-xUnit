@@ -18,6 +18,8 @@ namespace Alura.Estacionamento.Modelos
     public double Faturado { get => faturado; set => faturado = value; }
     public List<Veiculo> Veiculos { get => veiculos; set => veiculos = value; }
     public Operador OperadorPatio { get => _operadorPatio; set => _operadorPatio = value; }
+    public bool PortaoAberto { get; private set; }
+
     public double TotalFaturado()
     {
       return this.Faturado;
@@ -111,6 +113,12 @@ namespace Alura.Estacionamento.Modelos
                         where veiculo.IdTicket == ticket
                         select veiculo).SingleOrDefault();
       return encontrado;
+    }
+
+    public bool FecharPortao()
+    {
+      PortaoAberto = false;
+      return PortaoAberto;
     }
 
     public Veiculo PesquisaVeiculoPorPlaca(string placa)
