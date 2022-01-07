@@ -1,21 +1,32 @@
 using Alura.Estacionamento.Alura.Estacionamento.Modelos;
 using Alura.Estacionamento.Modelos;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Alura.Estacionamento.Testes
 {
   public class VeiculoTeste
   {
+    private Veiculo veiculo;
+    public ITestOutputHelper SaidaConsoleTest;
+
     //AAA PATTERN
     //arrange 
     //Act
     //Assert 
 
+    public VeiculoTeste(ITestOutputHelper saidaConsoleTest)
+    {
+      SaidaConsoleTest = saidaConsoleTest;
+      SaidaConsoleTest.WriteLine("construtor invokado invocado.");
+      veiculo = new Veiculo();
+    }
+
     [Fact]
     public void TestarVeiculoAcelerarComParametroDez()
     {
       //Arrange
-      var veiculo = new Veiculo();
+      //var veiculo = new Veiculo();
       //Act
       veiculo.Acelerar(10);
       //Assert
@@ -28,7 +39,7 @@ namespace Alura.Estacionamento.Testes
     public void TestarVeiculoFrearComParametroDez()
     {
       //Arrange
-      var veiculo = new Veiculo();
+      //var veiculo = new Veiculo();
       //Act
       veiculo.Frear(10);
       //Assert
@@ -38,7 +49,7 @@ namespace Alura.Estacionamento.Testes
     [Fact(DisplayName = "Teste numero 2")]
     public void TestaTipoVeiculo()
     {
-      var veiculo = new Veiculo();
+      //var veiculo = new Veiculo();
 
       Assert.Equal(TipoVeiculo.Automovel, veiculo.Tipo);
     }
@@ -54,7 +65,7 @@ namespace Alura.Estacionamento.Testes
     public void TestaVeiculoClass(Veiculo modelo)
     {
       //Arrange
-      var veiculo = new Veiculo();
+      //var veiculo = new Veiculo();
 
       //Act
       veiculo.Acelerar(10);
@@ -68,15 +79,15 @@ namespace Alura.Estacionamento.Testes
     public void FichaDeInformacaoDoVeiculo()
     {
       //Arrange
-      var carro = new Veiculo();
-      carro.Proprietario = "Manoel Moura";
-      carro.Tipo = TipoVeiculo.Automovel;
-      carro.Placa = "FUS-7777";
-      carro.Cor = "Preto";
-      carro.Modelo = "Variante";
+      //var carro = new Veiculo();
+      veiculo.Proprietario = "Manoel Moura";
+      veiculo.Tipo = TipoVeiculo.Automovel;
+      veiculo.Placa = "FUS-7777";
+      veiculo.Cor = "Preto";
+      veiculo.Modelo = "Variante";
 
       //Act
-      string dados = carro.ToString();
+      string dados = veiculo.ToString();
 
       //Assert
       Assert.Contains("Ficha do Veículo:", dados);

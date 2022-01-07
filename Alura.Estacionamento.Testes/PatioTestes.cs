@@ -1,11 +1,23 @@
 ﻿using Alura.Estacionamento.Alura.Estacionamento.Modelos;
 using Alura.Estacionamento.Modelos;
+using System;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Alura.Estacionamento.Testes
 {
-  public class PatioTestes
+  public class PatioTestes: IDisposable
   {
+    private Veiculo veiculo;
+    public ITestOutputHelper SaidaConsoleTest;
+
+    public PatioTestes(ITestOutputHelper saidaConsoleTest)
+    {
+      SaidaConsoleTest = saidaConsoleTest;
+      SaidaConsoleTest.WriteLine("construtor do patio test");
+      veiculo = new Veiculo();
+    }
+
     //é Possível rodar o testes com Xunit usando o gerenciador de pacotes do 
     //NUGET
     [Fact]
@@ -14,7 +26,6 @@ namespace Alura.Estacionamento.Testes
       //arrange
       var estacionamento = new Patio();
       estacionamento.OperadorPatio = new Operador();
-      var veiculo = new Veiculo();
       veiculo.Proprietario = "André Silva";
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = "Verde";
@@ -41,7 +52,6 @@ namespace Alura.Estacionamento.Testes
       //Arrange
       var estacionamento = new Patio();
       estacionamento.OperadorPatio = new Operador();
-      var veiculo = new Veiculo();
       veiculo.Proprietario = proprietario;
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = cor;
@@ -64,7 +74,6 @@ namespace Alura.Estacionamento.Testes
       //Arrange
       var estacionamento = new Patio();
       estacionamento.OperadorPatio = new Operador();
-      var veiculo = new Veiculo();
       veiculo.Proprietario = proprietario;
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = cor;
@@ -86,7 +95,6 @@ namespace Alura.Estacionamento.Testes
       //Arrange
       var estacionamento = new Patio();
       estacionamento.OperadorPatio = new Operador();
-      var veiculo = new Veiculo();
       veiculo.Proprietario = "André luiz silva da hora";
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = "Verde";
@@ -136,6 +144,11 @@ namespace Alura.Estacionamento.Testes
 
       //assert
       Assert.Equal(abriuPortao, estacionamento.PortaoAberto);
+    }
+
+    public void Dispose()
+    {
+      SaidaConsoleTest.WriteLine("Dispose invocado");
     }
   }
 }
