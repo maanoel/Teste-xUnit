@@ -9,7 +9,7 @@ namespace Alura.Estacionamento.Testes
     //é Possível rodar o testes com Xunit usando o gerenciador de pacotes do 
     //NUGET
     [Fact]
-    public void ValidaFaturamento()
+    public void ValidaFaturamentoDoEstacionamentoComUmVeiculo()
     {
       //arrange
       var estacionamento = new Patio();
@@ -36,7 +36,7 @@ namespace Alura.Estacionamento.Testes
     [InlineData("Vitor brito", "ASD-7777", "PRETO", "GOL")]
     [InlineData("Nadine brito", "ASB-7777", "PRETO", "GOL")]
     [InlineData("Dante brito", "ABB-7777", "PRETO", "GOL")]
-    public void ValidarFaturamentoComVariosVeiculos(string proprietario, string placa, string cor, string modelo)
+    public void ValidarFaturamentoDoEstacionamentoComVariosVeiculos(string proprietario, string placa, string cor, string modelo)
     {
       //Arrange
       var estacionamento = new Patio();
@@ -59,7 +59,7 @@ namespace Alura.Estacionamento.Testes
 
     [Theory]
     [InlineData("Vitor brito", "ASD-7777", "PRETO", "GOL")]
-    public void LocalizaVeiculoNoPatio(string proprietario, string placa, string cor, string modelo)
+    public void LocalizaVeiculoNoPatioComBaseNaPlaca(string proprietario, string placa, string cor, string modelo)
     {
       //Arrange
       var estacionamento = new Patio();
@@ -81,7 +81,7 @@ namespace Alura.Estacionamento.Testes
     }
 
     [Fact]
-    public void AlterarDadosVeiculo()
+    public void AlterarDadosDoProprioVeiculo()
     {
       //Arrange
       var estacionamento = new Patio();

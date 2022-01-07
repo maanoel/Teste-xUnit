@@ -12,8 +12,7 @@ namespace Alura.Estacionamento.Testes
     //Assert 
 
     [Fact]
-    [Trait("Funcionalidade", "acelerar")]
-    public void TestaVeiculoAcelerar()
+    public void TestarVeiculoAcelerarComParametroDez()
     {
       //Arrange
       var veiculo = new Veiculo();
@@ -25,9 +24,8 @@ namespace Alura.Estacionamento.Testes
 
     //Na totvs, usamos o MSTest para realizar o testes unitários..
     //MSTEXT usa TestMethod e TestClass
-    [Fact(DisplayName = "Teste numero 1")]
-    [Trait("Funcionalidade", "frear")]
-    public void TestaVeicularFrear()
+    [Fact]
+    public void TestarVeiculoFrearComParametroDez()
     {
       //Arrange
       var veiculo = new Veiculo();
@@ -67,7 +65,7 @@ namespace Alura.Estacionamento.Testes
     }
 
     [Fact]
-    public void DadosVeiculo()
+    public void FichaDeInformacaoDoVeiculo()
     {
       //Arrange
       var carro = new Veiculo();
