@@ -1,11 +1,12 @@
 using Alura.Estacionamento.Alura.Estacionamento.Modelos;
 using Alura.Estacionamento.Modelos;
+using System;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Alura.Estacionamento.Testes
 {
-  public class VeiculoTeste
+  public class VeiculoTeste : IDisposable
   {
     private Veiculo veiculo;
     public ITestOutputHelper SaidaConsoleTest;
@@ -91,6 +92,11 @@ namespace Alura.Estacionamento.Testes
 
       //Assert
       Assert.Contains("Ficha do Veículo:", dados);
+    }
+
+    public void Dispose()
+    {
+      SaidaConsoleTest.WriteLine("dispose no console");
     }
   }
 }
