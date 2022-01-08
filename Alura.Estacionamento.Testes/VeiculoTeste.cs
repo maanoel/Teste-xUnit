@@ -107,6 +107,20 @@ namespace Alura.Estacionamento.Testes
       );
     }
 
+    [Fact]
+    public void TestaNomeProprietarioVeiculoComQuartoCaractreDaPlaca()
+    {
+      //arrange
+      string placa = "LAPEA1KE";
+
+      var mensagem = Assert.Throws<System.FormatException>(
+        () => new Veiculo().Placa = placa
+      );
+
+      //Excepted always become first..
+      Assert.Equal("O 4° caractere deve ser um hífen", mensagem.Message);
+    }
+
     public void Dispose()
     {
       SaidaConsoleTest.WriteLine("dispose no console");
