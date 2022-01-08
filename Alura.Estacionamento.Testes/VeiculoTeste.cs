@@ -94,6 +94,19 @@ namespace Alura.Estacionamento.Testes
       Assert.Contains("Ficha do Veículo:", dados);
     }
 
+    [Fact]
+    public void TestaNomeProprietarioVeiculoComMenosDeTresCaractres()
+    {
+      //Arrange
+      string nomeProprietario = "Ab";
+
+      //Assert
+      Assert.Throws<System.FormatException>(
+        //Act
+        () => new Veiculo(nomeProprietario)
+      );
+    }
+
     public void Dispose()
     {
       SaidaConsoleTest.WriteLine("dispose no console");
