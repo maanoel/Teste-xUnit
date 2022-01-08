@@ -113,9 +113,12 @@ namespace Alura.Estacionamento.Testes
       //arrange
       string placa = "LAPEA1KE";
 
+      //act
       var mensagem = Assert.Throws<System.FormatException>(
         () => new Veiculo().Placa = placa
       );
+
+      //assert
 
       //Excepted always become first..
       Assert.Equal("O 4° caractere deve ser um hífen", mensagem.Message);
