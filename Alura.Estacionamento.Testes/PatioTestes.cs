@@ -67,9 +67,11 @@ namespace Alura.Estacionamento.Testes
       Assert.Equal(2, faturamento);
     }
 
+    //O teste de regressão acontece quando o sistema é alterado devido a uma solicitação do usuário
+    /// e em seguida o teste precisa ser modificado também devido a esta alteração
     [Theory]
     [InlineData("Vitor brito", "ASD-7777", "PRETO", "GOL")]
-    public void LocalizaVeiculoNoPatioComBaseNaPlaca(string proprietario, string placa, string cor, string modelo)
+    public void LocalizaVeiculoNoPatioComBaseNoIdTicket(string proprietario, string placa, string cor, string modelo)
     {
       //Arrange
       var estacionamento = new Patio();
@@ -83,10 +85,10 @@ namespace Alura.Estacionamento.Testes
       estacionamento.RegistrarEntradaVeiculo(veiculo);
 
       //Act
-      var consultado = estacionamento.PesquisaVeiculo(placa);
+      var consultado = estacionamento.PesquisaVeiculo(veiculo.IdTicket);
 
       //Assert
-      Assert.Equal(placa, consultado.Placa);
+      Assert.Contains("### Ticket Estacionameno Alura ###", consultado.Ticket);
     }
 
     [Fact]

@@ -84,10 +84,10 @@ namespace Alura.Estacionamento.Modelos
       return registro;
     }
 
-    public Veiculo PesquisaVeiculo(string placa)
+    public Veiculo PesquisaVeiculo(string idTicket)
     {
       var encontrado = (from veiculo in Veiculos
-                        where veiculo.Placa == placa
+                        where veiculo.IdTicket == idTicket
                         select veiculo).SingleOrDefault();
 
       return encontrado;
