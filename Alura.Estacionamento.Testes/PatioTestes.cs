@@ -9,6 +9,7 @@ namespace Alura.Estacionamento.Testes
   public class PatioTestes: IDisposable
   {
     private Veiculo veiculo;
+    private Operador operador;
     public ITestOutputHelper SaidaConsoleTest;
 
     public PatioTestes(ITestOutputHelper saidaConsoleTest)
@@ -16,6 +17,8 @@ namespace Alura.Estacionamento.Testes
       SaidaConsoleTest = saidaConsoleTest;
       SaidaConsoleTest.WriteLine("construtor do patio test");
       veiculo = new Veiculo();
+      operador = new Operador();
+      operador.Nome = "Nildo";
     }
 
     //é Possível rodar o testes com Xunit usando o gerenciador de pacotes do 
@@ -25,7 +28,7 @@ namespace Alura.Estacionamento.Testes
     {
       //arrange
       var estacionamento = new Patio();
-      estacionamento.OperadorPatio = new Operador();
+      estacionamento.OperadorPatio = operador;
       veiculo.Proprietario = "André Silva";
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = "Verde";
@@ -51,7 +54,7 @@ namespace Alura.Estacionamento.Testes
     {
       //Arrange
       var estacionamento = new Patio();
-      estacionamento.OperadorPatio = new Operador();
+      estacionamento.OperadorPatio = operador;
       veiculo.Proprietario = proprietario;
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = cor;
@@ -75,7 +78,7 @@ namespace Alura.Estacionamento.Testes
     {
       //Arrange
       var estacionamento = new Patio();
-      estacionamento.OperadorPatio = new Operador();
+      estacionamento.OperadorPatio = operador;
       veiculo.Proprietario = proprietario;
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = cor;
@@ -96,7 +99,7 @@ namespace Alura.Estacionamento.Testes
     {
       //Arrange
       var estacionamento = new Patio();
-      estacionamento.OperadorPatio = new Operador();
+      estacionamento.OperadorPatio = operador;
       veiculo.Proprietario = "André luiz silva da hora";
       veiculo.Tipo = TipoVeiculo.Automovel;
       veiculo.Cor = "Verde";
@@ -125,7 +128,7 @@ namespace Alura.Estacionamento.Testes
     {
       //arrange
       var estacionamento = new Patio();
-      estacionamento.OperadorPatio = new Operador();
+      estacionamento.OperadorPatio = operador;
 
       //act
       bool fechouPortao = estacionamento.FecharPortao();
@@ -139,7 +142,7 @@ namespace Alura.Estacionamento.Testes
     {
       //arrange
       var estacionamento = new Patio();
-      estacionamento.OperadorPatio = new Operador();
+      estacionamento.OperadorPatio = operador;
 
       //act
       bool abriuPortao = estacionamento.AbrirPortao();
